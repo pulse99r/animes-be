@@ -5,9 +5,9 @@ const animesController = require('./controllers/animes')
 
 // create routes
 
-app.get('/',(request, response)=>{
-  console.log(request)
-  response.send('Welcome to Animania!')
+app.get('/',(req, res)=>{
+  // console.log(req)
+  res.send('Welcome to Animania!')
 }) // ()=>{} anonymous function is middleware
 app.use("/animes", animesController)
 

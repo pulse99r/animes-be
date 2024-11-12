@@ -3,9 +3,9 @@ const express = require('express');
 const animes = express.Router();
 const animesArr = require('../data/animes') 
 
-animes.get('/', (request, response)=>{
+animes.get('/', (req, res)=>{
   // console.log(animesArr)
-  response.status(200).json(animesArr)
+  res.status(200).json(animesArr)
 })
 
 module.exports = animes;
