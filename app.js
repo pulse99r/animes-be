@@ -12,4 +12,8 @@ app.get('/',(req, res)=>{
   res.send('Welcome to Animania!')
 }) // ()=>{} anonymous function is middleware
 
+app.get("*", (req, res)=>{ //catach for request that don't matchany routes
+  res.status(404).send("the resource you're looking for does not exist")
+})
+
 module.exports = app;

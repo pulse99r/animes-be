@@ -17,7 +17,7 @@ animes.get("/:id",(req, res)=>{
     // to compare to number in database strings must be coverted
     // const id = req.params.id
     const {id} = req.params
-    //                                           convert id param to number
+                                      // convert id param to number
     const anime = animesArr.find(anime => anime.id === Number(id))
     
     if(anime){
@@ -63,6 +63,23 @@ animes.delete("/:id", (req, res)=>{
     res.status(404).json({error: error})
     
   }
+})
+
+// update one anime
+animes.put('/:id',(req,res)=>{
+try {
+  const {id} = req.params; 
+  const anime = req.body;
+  const index = animesArr.findIndex((anime) => Number(id) === anime.id)
+  if(index !== -1){
+    animesArr.splice(index, 1, anime)
+    res.status(201).json(animesArr);
+  } else {
+    throw "could not update anime"
+  }
+} catch (error) {
+  res.status(400).json({error: error})
+}
 })
 
 
